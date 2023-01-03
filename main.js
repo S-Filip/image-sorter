@@ -2,10 +2,10 @@ const fs = require("fs");
 const path = require("path");
 const readline = require("readline").createInterface({ input: process.stdin, output: process.stdout });
 // absolute directory path
-console.log("Enter the directory path:");
+console.log("> Enter the directory path (right click to paste):");
 readline.prompt();
 readline.on("line", (directory) => {
-  console.log(`Reading directory: ${directory}`);
+  console.log(`\nReading directory: ${directory}`);
   fs.readdir(directory, (err, files) => {
     if (err) {
       console.error(`Error reading directory: ${err}`);
@@ -23,7 +23,7 @@ readline.on("line", (directory) => {
       console.log(`Renaming ${file} to ${newFileName}`);
       counter++;
       if (counter === imageFiles.length) {
-        readline.question("Press Enter to exit", () => {
+        readline.question("\nPress Enter to exit...", () => {
           readline.close();
         });
       }
