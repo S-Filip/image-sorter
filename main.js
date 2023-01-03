@@ -25,7 +25,7 @@ readline.on("line", (directory) => {
     console.log(`Found ${files.length} files`);
 
     // filter the list of files to only include image files
-    const imageFiles = files.filter((file) => file.endsWith(".jpg") || file.endsWith(".png"));
+    const imageFiles = files.filter((file) => file.endsWith(".jpg") || file.endsWith(".png") || file.endsWith(".webp") || file.endsWith(".gif") || file.endsWith(".jpeg"));
 
     console.log(`Found ${imageFiles.length} image files`);
 
