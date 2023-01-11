@@ -46,7 +46,11 @@ directoryReadline.on("line", (directory) => {
         }
         fs.rename(path.join(directory, file), path.join(directory, newFileName), (err) => {
           if (err) {
-            console.error(`Error renaming file: ${err}`);
+            if (err.code === "EACCES") {
+              console.error("Permission denied error: You may not have the necessary permissions to rename the file");
+            } else {
+              console.error(`Error renaming file: ${err}`);
+            }
             counter++;
           }
         });
